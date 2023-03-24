@@ -1,19 +1,25 @@
 const PODCAST_LIST_LIMIT = 100
 const PODCAST_LIST_GENRE = 1310
+const EPISODE_LIST_LIMIT = 100
 
-const ORIGINAL_URLS = {
+const ONE_DAY_IN_MS = 1000 * 60 * 60 * 24
+
+export const API_URLS = {
   PODCAST_LIST: `https://itunes.apple.com/us/rss/toppodcasts/limit=${PODCAST_LIST_LIMIT}/genre=${PODCAST_LIST_GENRE}/json`,
-  PODCAST_ITEM: 'https://itunes.apple.com/lookup',
+  PODCAST_DETAIL: `https://itunes.apple.com/lookup?media=podcast&entity=podcastEpisode&limit=${EPISODE_LIST_LIMIT}`,
+  // PODCAST_DETAIL: 'https://itunes.apple.com/lookup', // This endopoint does not return the exected info
 }
-const CORS_URL = 'https://api.allorigins.win/get?url='
-const transformURL = url => CORS_URL + encodeURIComponent(url)
 
-export const URLS = Object.entries(ORIGINAL_URLS).reduce(
-  (acc, [key, url]) => ({ ...acc, [key]: transformURL(url) }),
-  {},
-)
-export const PODCASTS_COOKIE = {
-  name: 'podcast_list',
-  path: '/',
-  expiration: 1,
+export const CORS_URL = 'https://api.allorigins.win/get?url='
+
+export const PODCAST_LIST_CACHE = {
+  name: 'podcast-list',
+  expiration: ONE_DAY_IN_MS,
+  json: true,
+}
+
+export const PODCAST_DETAIL_CACHE = {
+  name: 'podcast-detail',
+  expiration: ONE_DAY_IN_MS,
+  json: true,
 }
