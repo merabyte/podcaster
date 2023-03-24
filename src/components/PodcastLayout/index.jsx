@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 import Loading from '../Loading'
 import PodcastCard from '../PodcastCard'
 
@@ -18,6 +20,12 @@ function PodcastLayout({ data, loading, children }) {
       )}
     </div>
   )
+}
+
+PodcastLayout.propTypes = {
+  data: PropTypes.object,
+  loading: PropTypes.bool,
+  children: PropTypes.node,
 }
 
 export default PodcastLayout

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 function PodcastCard({ title, author, description, imageUrl, href }) {
   return (
@@ -25,6 +26,14 @@ function PodcastCard({ title, author, description, imageUrl, href }) {
       </div>
     </div>
   )
+}
+
+PodcastCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  imageUrl: PropTypes.string,
+  href: PropTypes.string,
 }
 
 export default PodcastCard

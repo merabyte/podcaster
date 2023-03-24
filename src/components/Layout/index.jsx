@@ -1,9 +1,6 @@
-import { Link, Outlet, useNavigation } from 'react-router-dom'
-import Loading from '../Loading'
+import { Link, Outlet } from 'react-router-dom'
 
 function Layout() {
-  const navigation = useNavigation()
-
   return (
     <main className="p-2">
       <header className="sticky top-0 z-10 flex pb-2 border-b border-solid bg-white">

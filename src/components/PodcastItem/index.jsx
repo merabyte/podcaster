@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 function PodcastItem({ title, author, imageUrl, href, boxStyle }) {
   return (
@@ -19,6 +20,14 @@ function PodcastItem({ title, author, imageUrl, href, boxStyle }) {
       </div>
     </Link>
   )
+}
+
+PodcastItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
+  href: PropTypes.string,
+  boxStyle: PropTypes.object,
 }
 
 export default PodcastItem

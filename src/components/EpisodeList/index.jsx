@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import EpisodeRow from '../EpisodeRow'
 
 function EpisodeList({ episodes }) {
   return (
     <div className="flex flex-col gap-y-4">
-      <div className="border-solid border border-gray-300 shadow-md px-2 py-1 text-lg font-bold">
+      <h3 className="border-solid border border-gray-300 shadow-md px-2 py-1 text-lg font-bold">
         Episodes: {episodes.length}
-      </div>
+      </h3>
       <div className="border-solid border border-gray-300 shadow-md p-2 divide-y text-sm">
         <div className="flex p-1 font-bold">
           <div className="flex-1">Title</div>
@@ -26,6 +26,14 @@ function EpisodeList({ episodes }) {
       </div>
     </div>
   )
+}
+
+EpisodeList.propTypes = {
+  episodes: PropTypes.arrayOf(PropTypes.object),
+}
+
+EpisodeList.defaultProps = {
+  episodes: [],
 }
 
 export default EpisodeList

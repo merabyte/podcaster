@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const formatTime = milis => {
   const durationHoursFloat = milis / 1000 / 60 / 60
@@ -32,6 +33,18 @@ function EpisodeRow({ title, href, ISODate, durationMilis, className }) {
       <div className="w-16 text-right">{formattedDuration}</div>
     </div>
   )
+}
+
+EpisodeRow.propTypes = {
+  title: PropTypes.string.isRequired,
+  href: PropTypes.string,
+  ISODate: PropTypes.string,
+  durationMilis: PropTypes.number,
+  className: PropTypes.string,
+}
+
+EpisodeRow.defaultProps = {
+  durationMilis: 0,
 }
 
 export default EpisodeRow
