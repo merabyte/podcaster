@@ -1,5 +1,18 @@
+import { useParams } from 'react-router-dom'
+
+import { usePodcastDetailRequest } from '../../hooks'
+import PodcastLayout from '../../components/PodcastLayout'
+import EpisodeList from '../../components/EpisodeList'
+
 function Podcast() {
-  return <div className="text-red-700 font-bold">PODCAST</div>
+  const { podcastId } = useParams()
+  const { data, loading } = usePodcastDetailRequest({ podcastId })
+
+  return (
+    <PodcastLayout data={data} loading={loading}>
+      <EpisodeList episodes={data?.episodes} />
+    </PodcastLayout>
+  )
 }
 
 export default Podcast
