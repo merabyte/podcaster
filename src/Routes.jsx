@@ -3,8 +3,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Layout from './components/Layout'
 import Error from './components/Error'
-import Home from './pages/Home'
 
+const Home = lazy(() => import('./pages/Home'))
 const Podcast = lazy(() => import('./pages/Podcast'))
 const Episode = lazy(() => import('./pages/Episode'))
 
@@ -16,7 +16,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: (
+          <Suspense fallback={<>...</>}>
+            <Home />
+          </Suspense>
+        ),
         errorElement: <Error />,
       },
       {
