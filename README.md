@@ -30,10 +30,12 @@ The command to run the app in **development** mode is:
 npm run dev
 ```
 
-The command to run the app in **production** mode is:
+If you want to build the app in **production** mode is:
 ```
 npm run build
 ```
+> The whole production code will be deployed in a new folder inside the root folder named `dist`.
+
 
 ### Test
 For run the unit testing made for components, please run:
