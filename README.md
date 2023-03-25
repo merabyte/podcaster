@@ -5,6 +5,8 @@ This project is a small SPA that shows information and it brings to you the chan
 
 It uses the [iTunes Search API](https://performance-partners.apple.com/search-api) to get all the information of artists, collections and tracks.
 
+If you want to take a look at how it works without having to install it, the repo is sync with Netlify, so you can see the last version through this [link](https://velvety-otter-85aca1.netlify.app/).
+
 
 ### Tech stack
 
@@ -14,7 +16,7 @@ The project has been developed with the following technology:
 - [NPM](https://www.npmjs.com)
 
 
-### Intallation and run
+### Install and run
 
 To download and install dependencies in your local machine you have to do:
 ```
