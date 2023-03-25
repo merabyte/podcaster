@@ -38,12 +38,12 @@ npm run build
 
 
 ### Test
-For run the unit testing made for components, please run:
+To run the unit testing made for components, please do:
 ```
 npm run test
 ```
 
-If you want to check the test coverage, you have to type:
+And to check the test coverage, you have to type:
 ```
 npm run coverage
 ```
