@@ -69,9 +69,7 @@ function Home() {
               <PodcastItem
                 key={podcast.id}
                 href={href}
-                boxStyle={{
-                  backgroundImage: `linear-gradient(45deg, ${color}, transparent)`,
-                }}
+                boxBg={`linear-gradient(45deg, ${color}, transparent)`}
                 {...podcast}
               />
             )

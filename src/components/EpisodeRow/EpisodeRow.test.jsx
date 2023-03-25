@@ -4,7 +4,7 @@ import { createMemoryRouter, RouterProvider } from 'react-router-dom'
 import { episodes } from '../../../tests/mocks'
 import EpisodeRow from './'
 
-const episode = episodes[0]
+const episode = { ...episodes[0], href: `/podcast/${episodes[0].podcastId}/episode/${episodes[0].id}` }
 let router
 
 describe('EpisodeRow', () => {
@@ -16,7 +16,7 @@ describe('EpisodeRow', () => {
           element: <EpisodeRow {...episode} />,
         },
       ],
-      { initialEntries: ['/podcast/:id'], initialIndex: 0 },
+      { initialEntries: ['/podcast/1'], initialIndex: 0 },
     )
   })
 
@@ -24,32 +24,31 @@ describe('EpisodeRow', () => {
     router = null
   })
 
-  it('should render the correct episode title', () => {
+  it('should render the correct episode title and link', () => {
     render(<RouterProvider router={router} />)
-    const episodeTitle = screen.getByRole('link', {
+    const titleElement = screen.getByRole('link', {
       name: episode.title,
     })
 
-    expect(episodeTitle).toBeInTheDocument
+    expect(titleElement).toBeInTheDocument()
+    expect(titleElement.href).toContain(episode.href)
   })
 
   it('should render the correct episode date', () => {
-    const formattedDate = Intl.DateTimeFormat('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(
-      new Date(episode.ISODate),
-    )
+    const formattedDate = '22/03/2023'
 
     render(<RouterProvider router={router} />)
-    const episodeDate = screen.getByText(formattedDate)
+    const dateElement = screen.getByText(formattedDate)
 
-    expect(episodeDate).toBeInTheDocument
+    expect(dateElement).toBeInTheDocument()
   })
 
   it('should render the correct episode duration', () => {
     const formattedDuration = '05:00'
 
     render(<RouterProvider router={router} />)
-    const episodeDuration = screen.getByText(formattedDuration)
+    const durationElement = screen.getByText(formattedDuration)
 
-    expect(episodeDuration).toBeInTheDocument
+    expect(durationElement).toBeInTheDocument()
   })
 })

@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Error > should match snapshot 1`] = `
+<div>
+  <div>
+    <h1>
+      Oops!
+    </h1>
+    <p>
+      Sorry, an unexpected error has occurred.
+    </p>
+    <p>
+      <i />
+    </p>
+  </div>
+</div>
+`;

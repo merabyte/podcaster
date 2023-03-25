@@ -3,10 +3,15 @@ import { render } from '@testing-library/react'
 import Loading from './'
 
 describe('Loading', () => {
-  it('should render the loading component', () => {
+  it('should match snapshot', () => {
     const { container } = render(<Loading />)
-    const loadingElement = container.getElementsByClassName('lds-ellipsis')
+    expect(container).toMatchSnapshot()
+  })
 
-    expect(loadingElement).toBeInTheDocument
+  it('should render the component', () => {
+    const { container } = render(<Loading />)
+    const loadingElement = container.querySelector('.lds-ellipsis')
+
+    expect(loadingElement).toBeInTheDocument()
   })
 })

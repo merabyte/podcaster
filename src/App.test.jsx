@@ -10,6 +10,6 @@ describe('App', () => {
       name: /podcaster/i,
     })
 
-    expect(titleElement).toBeInTheDocument
+    expect(titleElement).toBeInTheDocument()
   })
 })

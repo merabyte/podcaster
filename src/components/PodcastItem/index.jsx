@@ -1,18 +1,20 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-function PodcastItem({ title, author, imageUrl, href, boxStyle }) {
+function PodcastItem({ title, author, imageUrl, href, boxBg }) {
   return (
     <Link to={href} className={'group relative pt-7 flex flex-col'}>
       <img
         src={imageUrl}
         loading="lazy"
         alt={`${title} (${author})`}
-        className="absolute top-0 self-center rounded-full border-solid border border-gray-300 w-14 transition-all group-hover:scale-150"
+        className="absolute top-0 self-center rounded-full border-solid border border-gray-300 w-14 h-14 transition-all group-hover:scale-150"
       />
 
       <div
-        style={boxStyle}
+        style={{
+          backgroundImage: boxBg,
+        }}
         className="flex-1 flex flex-col items-center pt-10 gap-y-2 p-2 border-solid border border-gray-300 shadow-md"
       >
         <div className="text-xs text-center uppercase">{title}</div>
@@ -27,7 +29,7 @@ PodcastItem.propTypes = {
   author: PropTypes.string.isRequired,
   imageUrl: PropTypes.string,
   href: PropTypes.string,
-  boxStyle: PropTypes.object,
+  boxBg: PropTypes.string,
 }
 
 export default PodcastItem

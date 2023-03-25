@@ -1,17 +1,17 @@
 import { render, screen } from '@testing-library/react'
 import { createMemoryRouter, RouterProvider } from 'react-router-dom'
 
-import Layout from './'
+import Error from './'
 
 let router
 
-describe('Layout', () => {
+describe('Error', () => {
   beforeEach(() => {
     router = createMemoryRouter(
       [
         {
           path: '/',
-          element: <Layout />,
+          element: <Error />,
         },
       ],
       { initialEntries: ['/'], initialIndex: 0 },
@@ -22,13 +22,8 @@ describe('Layout', () => {
     router = null
   })
 
-  it('should render the correct title', () => {
-    render(<RouterProvider router={router} />)
-
-    const titleElement = screen.getByRole('link', {
-      name: /podcaster/i,
-    })
-
-    expect(titleElement).toBeInTheDocument()
+  it('should match snapshot', () => {
+    const { container } = render(<RouterProvider router={router} />)
+    expect(container).toMatchSnapshot()
   })
 })

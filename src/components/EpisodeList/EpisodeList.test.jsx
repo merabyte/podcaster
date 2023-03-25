@@ -15,7 +15,7 @@ describe('EpisodeList', () => {
           element: <EpisodeList episodes={episodes} />,
         },
       ],
-      { initialEntries: ['/podcast/:id'], initialIndex: 0 },
+      { initialEntries: ['/podcast/1'], initialIndex: 0 },
     )
   })
 
@@ -31,7 +31,7 @@ describe('EpisodeList', () => {
       name: titleRX,
     })
 
-    expect(titleElement).toBeInTheDocument
+    expect(titleElement).toBeInTheDocument()
   })
 
   it('should render the correct episode titles', () => {
@@ -42,7 +42,7 @@ describe('EpisodeList', () => {
         name: episode.title,
       })
 
-      expect(episodeTitle).toBeInTheDocument
+      expect(episodeTitle).toBeInTheDocument()
     })
   })
 })
