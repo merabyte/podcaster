@@ -38,4 +38,21 @@ function getCacheData(cacheData) {
   return json ? JSON.parse(value) : value
 }
 
-export { request, setCacheData, getCacheData }
+const formatTimeFromMilis = milis => {
+  const durationHoursFloat = milis / 1000 / 60 / 60
+  const durationHours = Math.floor(durationHoursFloat)
+  const remainingMinutes = durationHoursFloat - durationHours
+  const durationMinutesFloat = remainingMinutes * 60
+  const durationMinutes = Math.floor(durationMinutesFloat)
+  const remainingSeconds = durationMinutesFloat - durationMinutes
+  const durationSeconds = Math.round(remainingSeconds * 60)
+
+  return (
+    `${durationHours ? durationHours + ':' : ''}` +
+    `${durationMinutes}`.padStart(2, '0') +
+    ':' +
+    `${durationSeconds}`.padStart(2, '0')
+  )
+}
+
+export { request, setCacheData, getCacheData, formatTimeFromMilis }
