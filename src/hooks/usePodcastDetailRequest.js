@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react'
+import { useMemo } from 'react'
 
 import { API_URLS, PODCAST_DETAIL_CACHE } from '../utils/config'
 import { fromAPIDataToPodcastDetail } from '../utils/mappers'

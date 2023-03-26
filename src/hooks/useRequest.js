@@ -22,8 +22,8 @@ function useRequest({ url, options, cache, mapper }) {
         setData(newData)
       } catch (err) {
         if (!abortController.signal.aborted) {
-          console.error(`Request to ${url} failed...`)
-          setError(error)
+          console.error(`Request to ${url} failed...`, err)
+          setError(err)
           setLoading(false)
         }
       }
