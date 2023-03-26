@@ -48,4 +48,10 @@ And to check the test coverage, you have to type:
 npm run coverage
 ```
 
+Test E2E
+
+```
+npm run cy:e2e
+```
+
 Enjoy!
