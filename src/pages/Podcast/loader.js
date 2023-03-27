@@ -20,10 +20,14 @@ export default async function loader({ request, params }) {
     mapper: fromAPIDataToPodcastDetail,
   })
 
+  if (!data) {
+    throw new Response('Not Found', { status: 404 })
+  }
+
   const listData = await homeLoader({ request })
 
   const listItem = listData?.find(item => item.id === data?.id)
-  if (data && listItem) data.description = listItem.description
+  if (listItem) data.description = listItem.description
 
   return data
 }

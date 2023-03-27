@@ -12,7 +12,9 @@ export function fromAPIDataToPodcastList(apiData) {
 
 export function fromAPIDataToPodcastDetail(apiData) {
   const results = apiData?.results || []
-  const [podcast = {}, ...episodes] = results
+  const [podcast, ...episodes] = results
+
+  if (!podcast) return null
 
   return {
     id: `${podcast.trackId}`,
