@@ -1,7 +1,7 @@
 
 # Podcaster App
 
-This project is a small SPA that shows information and it brings to you the chance to listen to any of the 100 most popular podcasts on iTunes.
+This project is a small SPA that shows information of the 100 most popular podcasts on iTunes and it brings to you the chance to listen to any of them.
 
 It uses the [iTunes Search API](https://performance-partners.apple.com/search-api) to get all the information of artists, collections and tracks.
 
@@ -25,31 +25,31 @@ $ cd podcaster
 $ npm i
 ```
 
-The command to run the app in **development** mode is:
+In the project directory, you can run the app in **development** mode doing:
 ```
 npm run dev
 ```
 
-If you want to build the app in **production** mode is:
+Also you can build the app in **production** mode typing:
 ```
 npm run build
 ```
-> The whole production code will be deployed in a new folder inside the root folder named `dist`.
+> In production mode, the whole code will be minified and deployed in a new folder inside the root folder named `dist`.
 
 
-### Test
-To run the unit testing made for components, please do:
+### Testing
+To run the components unit testing, please do:
 ```
 npm run test
 ```
 
-And to check the test coverage, you have to type:
+If you want to check the component testing coverage, you have to type:
 ```
 npm run coverage
 ```
 
-Test E2E
-
+The **end-to-end** testing has been made using [Cypress](https://www.cypress.io/).
+You can run it with this command:
 ```
 npm run cy:e2e
 ```
