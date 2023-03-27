@@ -3,12 +3,7 @@
 exports[`Loading > should match snapshot 1`] = `
 <div>
   <div
-    class="lds-ellipsis "
-  >
-    <div />
-    <div />
-    <div />
-    <div />
-  </div>
+    class="blob "
+  />
 </div>
 `;

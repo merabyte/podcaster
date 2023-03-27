@@ -10,7 +10,7 @@ describe('Loading', () => {
 
   it('should render the component', () => {
     const { container } = render(<Loading />)
-    const loadingElement = container.querySelector('.lds-ellipsis')
+    const loadingElement = container.querySelector('.blob')
 
     expect(loadingElement).toBeInTheDocument()
   })

@@ -1,14 +1,7 @@
 import PropTypes from 'prop-types'
 
 function Loading({ className }) {
-  return (
-    <div className={`lds-ellipsis ${className || ''}`}>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  )
+  return <div className={`blob ${className || ''}`}></div>
 }
 
 Loading.propTypes = {
