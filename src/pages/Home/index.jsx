@@ -49,7 +49,7 @@ function Home() {
         />
       </div>
 
-      {loading && <Loading className="self-center" />}
+      {loading && <Loading />}
 
       {!loading && !filteredResults?.length && (
         <div className="pt-8 self-center text-center italic text-gray-600">

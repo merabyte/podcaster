@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Layout from './components/Layout'
 import Error from './components/Error'
+import Loading from './components/Loading'
 
 const Home = lazy(() => import('./pages/Home'))
 const Podcast = lazy(() => import('./pages/Podcast'))
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: (
-          <Suspense fallback={<>...</>}>
+          <Suspense fallback={<Loading />}>
             <Home />
           </Suspense>
         ),
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
       {
         path: 'podcast/:podcastId',
         element: (
-          <Suspense fallback={<>...</>}>
+          <Suspense fallback={<Loading />}>
             <Podcast />
           </Suspense>
         ),
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
       {
         path: 'podcast/:podcastId/episode/:episodeId',
         element: (
-          <Suspense fallback={<>...</>}>
+          <Suspense fallback={<Loading />}>
             <Episode />
           </Suspense>
         ),
