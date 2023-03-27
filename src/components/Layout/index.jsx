@@ -13,7 +13,7 @@ function Layout() {
             Podcaster
           </Link>
         </div>
-        {true && (
+        {isLoading && (
           <div className="pr-2">
             <Loading />
           </div>
