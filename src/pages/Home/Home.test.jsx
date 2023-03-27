@@ -2,18 +2,15 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { createMemoryRouter, RouterProvider } from 'react-router-dom'
 
 import { podcasts } from '../../../tests/mocks'
-import Home from './'
+import { Home } from './'
 
 let router
 
-vi.mock('../../hooks', async () => {
-  const mod = await vi.importActual('../../hooks')
+vi.mock('react-router-dom', async () => {
+  const mod = await vi.importActual('react-router-dom')
   return {
     ...mod,
-    usePodcastListRequest: () => ({
-      data: podcasts,
-      loading: false,
-    }),
+    useLoaderData: () => podcasts,
   }
 })
 

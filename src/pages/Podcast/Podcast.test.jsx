@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { createMemoryRouter, RouterProvider } from 'react-router-dom'
 
 import { podcastDetails } from '../../../tests/mocks'
-import Podcast from './'
+import { Podcast, podcastLoader } from './'
 
 const podcastDetail = podcastDetails[0]
 const podcastId = podcastDetail.id
@@ -15,17 +15,7 @@ vi.mock('react-router-dom', async () => {
     useParams: () => ({
       podcastId,
     }),
-  }
-})
-
-vi.mock('../../hooks', async () => {
-  const mod = await vi.importActual('../../hooks')
-  return {
-    ...mod,
-    usePodcastDetailRequest: () => ({
-      data: podcastDetail,
-      loading: false,
-    }),
+    useLoaderData: () => podcastDetail,
   }
 })
 

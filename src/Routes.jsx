@@ -1,13 +1,11 @@
-import { lazy, Suspense } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Layout from './components/Layout'
 import Error from './components/Error'
-import Loading from './components/Loading'
 
-const Home = lazy(() => import('./pages/Home'))
-const Podcast = lazy(() => import('./pages/Podcast'))
-const Episode = lazy(() => import('./pages/Episode'))
+import { Home, homeLoader } from './pages/Home'
+import { Podcast, podcastLoader } from './pages/Podcast'
+import { Episode, episodeLoader } from './pages/Episode'
 
 const router = createBrowserRouter([
   {
@@ -17,29 +15,20 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Home />
-          </Suspense>
-        ),
+        element: <Home />,
+        loader: homeLoader,
         errorElement: <Error />,
       },
       {
         path: 'podcast/:podcastId',
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Podcast />
-          </Suspense>
-        ),
+        element: <Podcast />,
+        loader: podcastLoader,
         errorElement: <Error />,
       },
       {
         path: 'podcast/:podcastId/episode/:episodeId',
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Episode />
-          </Suspense>
-        ),
+        element: <Episode />,
+        loader: episodeLoader,
         errorElement: <Error />,
       },
     ],

@@ -14,6 +14,20 @@ async function request(url, options) {
   return CORS_URL ? JSON.parse(data?.contents || null) : data
 }
 
+async function apiRequest(url, options) {
+  const { cache, mapper, ...fetchOptions } = options
+
+  const cacheData = cache && getCacheData(cache)
+  if (cacheData) return cacheData
+
+  const requestData = await request(url, fetchOptions)
+  const data = mapper ? mapper(requestData) : requestData
+
+  if (cache) setCacheData({ ...cache, value: data })
+
+  return data
+}
+
 function setCacheData(cacheData) {
   const { name, value, expiration, json } = cacheData
   const expirationTS = Date.now() + expiration
@@ -55,4 +69,4 @@ const formatTimeFromMilis = milis => {
   )
 }
 
-export { request, setCacheData, getCacheData, formatTimeFromMilis }
+export { request, apiRequest, setCacheData, getCacheData, formatTimeFromMilis }
