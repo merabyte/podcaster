@@ -10,7 +10,7 @@ export const API_URLS = {
   // PODCAST_DETAIL: 'https://itunes.apple.com/lookup', // This endopoint does not return the exected info
 }
 
-export const CORS_URL = 'https://api.allorigins.win/get?url='
+export const CORS_URL = null // 'https://api.allorigins.win/get?url='
 
 export const PODCAST_LIST_CACHE = {
   name: 'podcast-list',
